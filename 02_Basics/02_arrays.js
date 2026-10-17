@@ -1,40 +1,35 @@
-//"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+// const marvel_heros=["thor","ironman","spiderman"]
+// const dc_heros=["superman","flash","batman"]
 
-let arr=[2,34,5,6,78]
-console.log(arr)
-console.log(arr[0])//undefined
+// //merge them
+// marvel_heros.push(dc_heros)
+// // console.log(marvel_heros)
+// // console.log(marvel_heros[3][2])
 
-console.log(arr[-1])//undefined
-console.log(arr[7])
-console.log(arr[3])
-//JavaScript array-copy operations create shallow copies. (All standard built-in copy operations with any JavaScript objects create shallow copies, rather than deep copies).
-//Array indices
 
-//create array s obj
-let newarr4=new Array(1,2,3,4)
-console.log(newarr4[3])
-///Array Maethods
-newarr4.push(33)
-console.log(newarr4)
-newarr4.pop()
-console.log(newarr4)
+// //concat
+// let all_heros=marvel_heros.concat(dc_heros)//concat return new array doesnot modify the originall array
+// // console.log(all_heros)
 
-newarr4.unshift(33)//push in start
+// //use spread
+// const all_new_heros=[...marvel_heros, ...dc_heros]
+// console.log(all_new_heros)
 
-console.log(newarr4)
+//use flat
+const another_heros=[1,2,3,[4,8,[5,6,5,[44,55,55]],[58,6]]]
+const all_real_heros=another_heros.flat(Infinity)//infinity tellls all the depth is scrapped
 
-console.log(newarr4.includes(7))
-console.log(newarr4.indexOf(44))
+console.log(all_real_heros)
+const all_real_heros2=another_heros.flat(2)//scrap upto depth 2
+console.log(all_real_heros2)
 
-//use join to convert to string 
-const newarr23=newarr4.join()
-console.log(newarr23)
-console.log(typeof(newarr23))//String
+//get array from other datatype
+console.log(Array.isArray("Hitesh"))
+console.log(Array.from("Hitesh"))
+//from object
+console.log(Array.from({name:"Hitesh"}))//return empty array as it asks for whether array of key or value
 
-//Slice and splice
-let myarr1=newarr4.slice(1,3)
-console.log("A",myarr1)
-
-let myarr2=newarr4.splice(1,3)///it sliced the  original array
-console.log("B",myarr2)
-console.log(myarr2)
+let sc1=90
+let sc2=80
+let sc3=190
+console.log(Array.of(sc1,sc2,sc3))
