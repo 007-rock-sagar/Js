@@ -1,0 +1,42 @@
+/*docs: add comprehensive DOM selectors, NodeList, and HTMLCollection study notes
+
+Covers core concepts, behavioral traps, code tracers, and interview matrixes based on Chai aur Code Video #32.
+
+### 📝 Study Notes: DOM Selectors, NodeLists, & HTMLCollections
+
+#### 1. Core Selection Queries
+* **`document.getElementById('id')`**: Targets unique ID attributes. Do not prefix with `#`. Returns `null` if missing.
+* **`document.querySelector('selector')`**: Returns the **very first single element** matching a standard CSS selector (`.class`, `#id`, `tag`).
+* **`document.querySelectorAll('selector')`**: Returns a complete **`NodeList`** collection of all matching elements.
+* **`document.getElementsByClassName('class')`**: Returns an **`HTMLCollection`** of matching elements.
+
+#### 2. Reading Text: `innerText` vs. `textContent` vs. `innerHTML`
+* **`innerText`**: Returns only the text content that is **actively visible** on the screen (respects CSS styling rules like `display: none`).
+* **`textContent`**: Returns **all raw plain text** contained inside the element, completely ignoring hidden CSS flags.
+* **`innerHTML`**: Returns all plain text **plus any internal HTML tags** exactly as written in the markup file.
+
+#### 3. Inline Styles & Attribute Manipulation
+* **CSS Variable Naming**: Property values containing hyphens must be written in **camelCase** within JavaScript code blocks (`element.style.backgroundColor = "green"`).
+* **`element.setAttribute('attr', 'value')`**: Overwrites the attribute string completely. *Warning: It will wipe out any pre-existing classes unless you explicitly specify them inside the new value.*
+
+#### 4. The Showdown Matrix: `NodeList` vs. `HTMLCollection`
+
+| Comparative Dimension | `NodeList` Collection | `HTMLCollection` Array |
+| :--- | :--- | :--- |
+| **Generation Selector** | `querySelectorAll()` | `getElementsByClassName()` |
+| **Direct Index Pointer Access** | ✅ Yes (`list[0]`) | ✅ Yes (`list[0]`) |
+| **Native `.forEach()` Loop** | ✅ **Supported natively** | ❌ **Not Supported** (Will crash code) |
+| **Advanced Array Methods** | ❌ Requires array conversion | ❌ Requires array conversion |
+| **How to use `.map()` / `.filter()`**| Convert via `Array.from(list)` | Convert via `Array.from(coll)` |
+
+#### 5. Code Implementation Blueprints
+* **NodeList Processing:**
+  ```javascript
+  document.querySelectorAll('h2').forEach(el => el.style.color = "red");
+  ```
+* **HTMLCollection Processing:**
+  ```javascript
+  const list = document.getElementsByClassName('list-item');
+  Array.from(list).forEach(el => el.style.color = "orange");
+  ```
+v*/
