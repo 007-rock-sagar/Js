@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Late Night</title>
+</head>
+<body style="background-color:#212121; color:aliceblue">
+ 
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+ <!--task adding a lis titem-->
+  //we will creatwe a function that will add an list everytime we pass the ele in func
+  function addlang(langname){
+    const listadd=document.createElement('li')
+    listadd.innerHTML=`${langname}`
+    document.querySelector('.language').appendChild(listadd)
+  }
+  addlang("python")
+  addlang("typescript")
+  //Note -->this way of adding nodes in last of tree cause traversing tree leaf nodes each time 
+  //since here we have only one node javascript so its okay
+  //but when we have lakhs of nodes then traversing each time is costlier
+
+  //so we will use optimized dsa thinking
+  //in this we dont need to traverse whole 
+  function addlioptimized(langname){
+    const li=document.createElement('li')
+    //instead of innerHTML we use appendchild
+    const langtoadd=document.createTextNode(langname)
+    li.appendChild(langtoadd)
+    //or directly li.appendChild(document.createElement('li'))
+    document.querySelector('.language').appendChild(li).style.color="green"
+  }
+  addlioptimized("golang")
+  addlioptimized("r")
+
+  //2.EDITING
+  const secondlang=document.querySelector("li:nth-child(2)")
+  //secondlang.innerHTML="MOJO"/////not optimized
+  const newli=document.createElement('li')
+  newli.textContent="Mojo"
+  secondlang.replaceWith(newli)
+
+  //replace first with haskell
+  const first=document.querySelector("li:first-child")
+  const newli2=document.createElement('li')
+  newli2.innerHTML="Haskell"
+  first.replaceWith(newli2)
+
+  //replace golang with java
+   const third=document.querySelector("li:nth-child(4)")
+   third.outerHTML='<li>jAVA</li>'
+
+   //Task 2 Remove
+   //remove r
+
+    const last=document.querySelector("li:last-child")
+    last.remove()
+</script>
+ 
+</html>
