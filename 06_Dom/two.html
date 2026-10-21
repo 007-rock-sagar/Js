@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai aur code</title>
+</head>
+<body style="background-color:#212121; color:aliceblue">
+    <div class="parent">
+        <div  class="day">Monday</div>
+        <!--this is a comment --> 
+        <div  class="day">Tuesday</div>
+        <div  class="day">wednesday</div>
+        <div  class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    // we can get child from parent
+    const parent=document.querySelector(".parent")
+    console.log(parent)
+    console.log(parent.children)
+    console.log(parent.children[0].innerText)
+    console.log(parent.children[0].innerHTML)
+    for (let i = 0; i < parent.children.length; i++) {
+       console.log(parent.children[i].innerHTML)
+       parent.children[i].style.color="green"
+    }
+       parent.children[0].style.color="blue"
+       parent.children[1].style.color="green"
+       console.log ( parent.firstElementChild)
+       parent.firstElementChild.innerText="sagar"
+       console.log(parent.LastElementChild)
+       //now  we can get parent from cchild
+       const dayone= document.querySelector(".day")
+       console.log(dayone)
+       console.log(dayone.parentElement)
+       console.log(dayone.nextSibling.innerText)
+       console.log("NODES",parent.childNodes)//it gave 9 ele as it also counted enter as an element as it stored in form of tree and these all things are its nodes
+       console.log("NODES",parent.childNodes)//after putting A COMMENT THE CNT INCREASES TO 11
+       
+</script>
+</html>
