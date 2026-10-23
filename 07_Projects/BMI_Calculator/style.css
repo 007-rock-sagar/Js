@@ -1,0 +1,67 @@
+.container {
+  width: 575px;
+  height: 825px;
+
+  background-color: #797978;
+  padding-left: 30px;
+}
+#height,
+#weight {
+  width: 150px;
+  height: 25px;
+  margin-top: 30px;
+}
+
+#weight-guide {
+  margin-left: 75px;
+  margin-top: 25px;
+}
+
+#results {
+  font-size: 35px;
+  margin-left: 90px;
+  margin-top: 20px;
+  color: rgb(241, 241, 241);
+}
+#remarks {
+    text-align: center;       /* Centers the text */
+    font-size: 1.75rem;       /* Makes the size similar to h2/h3 */
+    font-weight: bold;        /* Makes it thick like a heading */
+    margin-top: 15px;         /* Adds some clean spacing below the BMI number */
+    display: block;           /* Ensures centering works perfectly */
+}
+/* Styling for warnings + the blinking effect */
+.blink-red {
+    color: red;
+    font-weight: bold;
+    animation: blinker 1s linear infinite;
+}
+
+/* This defines the actual flashing action */
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+
+button {
+  width: 150px;
+  height: 35px;
+  margin-left: 90px;
+  margin-top: 25px;
+  background-color: #fff;
+  padding: 1px 30px;
+  border-radius: 8px;
+  color: #212121;
+  text-decoration: none;
+  border: 2px solid #212121;
+
+  font-size: 25px;
+}
+
+h1 {
+  padding-left: 15px;
+  padding-top: 25px;
+  
+}
