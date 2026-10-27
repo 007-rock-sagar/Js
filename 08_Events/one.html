@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Events</title>
+</head>
+<body style="background-color: #414141; color:aliceblue;">
+        <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            
+          
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+         <!--having just after alt onclick using is not recommended-->
+           <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" onclick="" ></li>
+          
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: rgb(173, 220, 220);" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+<!--Task->On clicking images it should disappear-->
+document.querySelector('#images').addEventListener('click',function(e){
+    // console.log(e)
+    // console.log(e.target)
+    //as we have to remove the whole list of that particular image not only image so we take parent of that image which is the particular list
+    console.log(e.target.parentNode);
+    //method 1
+    // let removeit=e.target.parentNode;
+    // removeit.remove();
+
+    //method 2
+     let removeit=e.target.parentNode;
+     removeit.parentNode.removeChild(removeit)
+
+
+},false)   
+
+//but on clicking list of google everything disappears as the parent of that is ul which completely get wiped out 
+//so we use "tagName to apply some cheecks
+// "
+document.querySelector('#images').addEventListener('click',function(e){
+    console.log(e.target.parentNode);
+    //method 1
+    console.log(e.target.tagName);
+      if(e.target.tagName==='google'){
+         let removeit=e.target.parentNode;
+       removeit.remove();
+      }
+
+},false) 
+</script>
+</html>
