@@ -33,3 +33,22 @@
     
 </script>
 </html>
+/*It can definitely look that way because of how the code is written, but no information is actually fetched before xhr.send() runs.
+The confusion happens because of the order your code is written versus the order JavaScript executes it.
+
+The Blueprint vs. The Action
+
+When you write xhr.onreadystatechange = function() { ... }, you are not running that function right away. Instead, you are giving JavaScript a blueprint: "Hey browser, remember this function. In the future, whenever the server sends back an update, run this code."
+JavaScript reads your script from top to bottom like this:
+1. xhr.open(...): Sets up the target address.
+2. xhr.onreadystatechange = function...: Registers your event listener blueprint. Nothing runs inside it yet.
+3. xhr.send(): The network request leaves your browser.
+4. The Server Responds: Only now does the browser look back at the blueprint you registered in Step 2, notices readyState has changed, and finally executes the code inside to console log your data.
+
+An Analogy: The Food Delivery Order
+
+Imagine ordering food online:
+• xhr.open: You type your address and select a restaurant.
+• xhr.onreadystatechange: You give delivery instructions: "When you arrive at my house, ring the doorbell." (You haven't received any food yet, you are just setting up the rule).
+• xhr.send(): You click "Place Order".
+You only get your food after clicking "Place Order". In the exact same way, the browser only receives the GitHub data after you call xhr.send().*/
